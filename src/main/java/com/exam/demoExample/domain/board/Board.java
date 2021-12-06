@@ -40,6 +40,7 @@ public class Board extends BaseTimeEntity {
         this.title = title;
         this.content = content;
     }
+
     //무한 참조 (댓글 기능)
     @OrderBy("id desc")
     @JsonIgnoreProperties({"board"})

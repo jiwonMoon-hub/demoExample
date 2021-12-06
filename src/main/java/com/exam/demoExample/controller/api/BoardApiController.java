@@ -4,6 +4,8 @@ import com.exam.demoExample.config.auth.PrincipalDetail;
 import com.exam.demoExample.dto.board.BoardSaveRequestDto;
 import com.exam.demoExample.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,11 +31,12 @@ public class BoardApiController {
         boardService.deleteById(id);
         return id;
     }
-    /**
-     * 글수정 API
-     */
-    @PutMapping("/api/v1/board/{id}")
-    public Long update(@PathVariable Long id, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
-        return boardService.update(id, boardService);
-    }
+
+//    /**
+//     * 글수정 API
+//     */
+//    @PutMapping("/api/v1/board/{id}")
+//    public Long update(@PathVariable Long id, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
+//        return boardService.update(id, boardService);
+//    }
 }
