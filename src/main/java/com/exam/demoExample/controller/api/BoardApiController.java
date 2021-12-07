@@ -19,7 +19,8 @@ public class BoardApiController {
      * 글작성 API
      */
     @PostMapping("/api/v1/board")
-    public Long save(@RequestBody BoardSaveRequestDto boardSaveRequestDto, @AuthenticationPrincipal PrincipalDetail principalDetail) {
+    public Long save(@RequestBody BoardSaveRequestDto boardSaveRequestDto,
+                     @AuthenticationPrincipal PrincipalDetail principalDetail) {
         return boardService.save(boardSaveRequestDto, principalDetail.getUser());
     }
 

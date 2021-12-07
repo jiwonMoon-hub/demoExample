@@ -5,12 +5,14 @@
 <meta charset="UTF-8">
 <body class="text-center d-flex flex-column h-100">
 
-<div class="d-flex" style="position: absolute; left: 20px; top: 70px;"><h2 style="margin-right: 10px;">글 번호:</h2><h2 th:text="${board.id}" id="id"></h2></div>
-<div class="d-flex" style="position: absolute; left: 20px; top: 110px;"><h2 style="margin-right: 10px;">작성자:</h2><h2 th:text="${board.user.username}"></h2></div>
 <main class="form-signin" style="max-width: 100%;">
     <div class="container border rounded flex-md-row mb-4 shadow-sm h-md-250">
         <h1 class="h3 m-3 fw-normal">글상세</h1>
         <hr/>
+
+        <div class="d-flex" style="position: absolute; left: 20px; top: 70px;"><h2 style="margin-right: 10px;">글 번호:</h2><h2 th:text="${board.id}" id="id"></h2></div>
+        <div class="d-flex" style="position: absolute; left: 20px; top: 110px;"><h2 style="margin-right: 10px;">작성자:</h2><h2 th:text="${board.user.username}"></h2></div>
+
         <div class="form-floating m-3">
             <h3 th:text="${board.title}" style="margin-bottom: 50px;"></h3>
         </div>
@@ -68,5 +70,4 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script th:src="@{/js/board.js}"></script>
 </body>
-
 </html>

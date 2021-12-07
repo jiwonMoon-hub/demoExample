@@ -2,28 +2,27 @@ package com.exam.demoExample.config.auth;
 
 
 import com.exam.demoExample.domain.user.User;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+//  스프링 시큐리티가 로그인 요청을 가로채서 로그인을 진행하고 완료가 되면 UserDetails 타입의 오브젝트를
+//  스프링 시큐리티의 고유한 세션 저장소에 저장을 해준다.
+
 @RequiredArgsConstructor
+@Getter
 public class PrincipalDetail implements UserDetails {
 
-    private final User user;
+    private User user; // 콤포지션 : 객체를 품고 있는 것
 
-//    public User getUser() {
-//        return getUser();
-//    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> collection = new ArrayList<>();
-        collection.add(() -> user.getRoleKey());
-
-        return collection;
+    //생성자
+    public PrincipalDetail(User User) {
+        this.user = user;
     }
 
     //사용자 패스워드
@@ -79,5 +78,11 @@ public class PrincipalDetail implements UserDetails {
         return true;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> collection = new ArrayList<>();
+        collection.add(() -> user.getRoleKey());
 
+        return collection;
+    }
 }
