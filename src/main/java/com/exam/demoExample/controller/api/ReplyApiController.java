@@ -13,6 +13,9 @@ public class ReplyApiController {
 
     private final ReplyService replyService;
 
+    // boardId 는 @PathVariable 통해서, Reply는 JSON으로 보내주고,
+    // User 정보는 @AuthenticationPrincipal로 보내준다.
+
     @PostMapping("/api/v1/board/{boardId}/reply")
     public void save(@PathVariable Long boardId,
                      @RequestBody Reply reply,
@@ -20,6 +23,7 @@ public class ReplyApiController {
         replyService.replySave(boardId, reply, principalDetail.getUser());
     }
 
+    //댓글 삭제 맵핑
     @DeleteMapping("/api/v1/board/{boardId}/reply/{replyId}")
     public void delete(@PathVariable Long replyId) {
         replyService.replyDelete(replyId);

@@ -16,13 +16,17 @@ import java.util.Collection;
 
 @RequiredArgsConstructor
 @Getter
+// UserDatails 객체 상속시 시큐리티의 고유한 세션저장소에 저장을 할 수 있게 된다.
 public class PrincipalDetail implements UserDetails {
 
     private User user; // 콤포지션 : 객체를 품고 있는 것
 
     //생성자
-    public PrincipalDetail(User User) {
+    public PrincipalDetail(User user) {
         this.user = user;
+    }
+
+    public void setUser(User userEntity) {
     }
 
     //사용자 패스워드
@@ -39,12 +43,12 @@ public class PrincipalDetail implements UserDetails {
 
     //사용자 이메일
 
+    //사용자 이메일
     public String getEmail() {
         return user.getEmail();
     }
 
     //사용자 닉네임
-
     public String getNickname() {
         return user.getNickname();
     }
@@ -85,4 +89,6 @@ public class PrincipalDetail implements UserDetails {
 
         return collection;
     }
+
+
 }

@@ -7,10 +7,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
+
     @Modifying
     @Query("update Board p set p.count = p.count + 1 where p.id = :id")
     int updateCount(Long id);
 
+    // Containing이라는 키워드를 사용하면 JPA에서 LIKE문으로 실행
+    // 제목이나 내용으로 검색될 수 있게
     Page<Board> findByTitleContainingOrContentContaining(String title, String content, Pageable pageable);
 
 }

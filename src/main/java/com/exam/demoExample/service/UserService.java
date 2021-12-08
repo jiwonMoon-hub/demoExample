@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor //생성자 주입을 받기 위해
 @Service
 public class UserService {
 
@@ -25,14 +25,19 @@ public class UserService {
         user.setPassword(hashPw);
         return userRepository.save(user).getId();
     }
+
     /**
      * 회원수정 로직
      */
     @Transactional
-    public Long update(User user, @AuthenticationPrincipal PrincipalDetail principalDetail) {
+    // UserService 클래스에서도
+    // @AuthenticationPrincipal PrincipalDetail principalDetail를 파라미터로
+    // 받아서 update된 유저 정보를 principalDetail에 집어넣는다.
+    public Long update(User user,
+                       @AuthenticationPrincipal PrincipalDetail principalDetail) {
         User userEntity = userRepository.findById(user.getId()).orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다. id=" + user.getId()));
         userEntity.update(bCryptPasswordEncoder.encode(user.getPassword()), user.getNickname());
-//        principalDetail.setUser(userEntity); //추가
+        principalDetail.setUser(userEntity); //추가
         return userEntity.getId();
     }
 

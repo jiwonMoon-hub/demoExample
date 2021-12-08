@@ -19,6 +19,7 @@ public class BoardSaveRequestDto {
     private User user;
 
     public Board toEntity() {
+
         return Board.builder()
                 .title(title)
                 .content(content)

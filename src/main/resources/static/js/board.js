@@ -2,17 +2,20 @@
 
 let index = {
     init: function () {
+        // 글 작성
         $("#btn-save").on("click", () => {
             this.save();
         });
+        // 글 삭제
         $("#btn-delete").on("click", () => {
             this.deleteById();
         });
+        // 글 수정
         $("#btn-update").on("click", () => {
             this.update();
         });
     },
-
+    // 글 작성
     save: function () {
         let data = {
             title: $("#title").val(),
@@ -34,6 +37,11 @@ let index = {
 
 
     },
+
+    // 글 삭제
+    // 삭제같은 경우는 data가 필요가없고 id만 필요
+    // board-detail.html에서 글 번호로 id값을 받음.
+    // let id = $("#id").text();에서 뒤에 val()가 아니라 text()라는 점을 주의하면 됩니다. input 태그가 아니기 때문
     deleteById: function () {
         let id = $("#id").text();
 
@@ -48,6 +56,8 @@ let index = {
             alert(JSON.stringify(err));
         });
     },
+
+    // 글 수정
     update: function () {
         let id = $("#id").val();
 

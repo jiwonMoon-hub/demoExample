@@ -1,16 +1,19 @@
 <!doctype html>
 <html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<header th:replace="layout/header :: header">
-  <meta charset="UTF-8">
-</header>
-<!--<link rel="stylesheet" th:href="@{../static/css/style.css}" />-->
+<head th:replace="layout/header :: head ('회원수정')"></head>
+
 <body class="text-center d-flex flex-column h-100">
+<header th:replace="layout/header :: header"></header>
 
 <main class="form-signin">
   <div class="container border rounded flex-md-row mb-4 shadow-sm h-md-250">
     <form id="needs-validation" novalidate>
       <h1 class="h3 m-3 fw-normal">회원가입</h1>
+      <!--      th:value="${#authentication.principal.id}"를 hidden으로 받아서 어떤 유저가 회원수정을 하는지 알기 위해.-->
+      <!--      th:value="${#authentication.principal.Value[ex)id.email]}" 이렇게 사용하면 input의 value값에 유저 정보가 들어 있는 PrincipalDetail의 값을 가져올 수 있다.-->
+
+
       <input type="hidden" id="id" th:value="${#authentication.principal.id}">
       <div class="form-floating m-3">
         <input type="text" th:value="${#authentication.principal.username}" class="form-control" id="username" placeholder="아이디를 입력하세요." required
@@ -70,6 +73,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script th:src="@{/js/validation-update.js}"></script>
 <script th:src="@{/js/user.js}"></script>
+
 </body>
 
 </html>

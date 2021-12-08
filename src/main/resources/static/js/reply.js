@@ -7,6 +7,7 @@ let replyIndex = {
         });
     },
 
+    // 댓글 작성
     replySave: function () {
         let data = {
             content: $("#reply-content").val(),
@@ -28,6 +29,7 @@ let replyIndex = {
         });
     },
 
+    // 댓글 삭제
     replyDelete: function (boardId, replyId) {
         $.ajax({
             type: "DELETE",

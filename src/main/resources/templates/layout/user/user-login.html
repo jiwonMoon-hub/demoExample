@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
 
-<header th:replace="layout/header :: header">
-<link rel="stylesheet" th:href="@{../static/css/style.css}" />
-  <meta charset="UTF-8">
-</header>
+<head th:replace="layout/header :: head ('로그인')"></head>
+
 <body class="text-center d-flex flex-column h-100">
+<header th:replace="layout/header :: header"></header>
 
 <main class="form-signin">
   <div class="container border rounded flex-md-row mb-4 shadow-sm h-md-250">
@@ -25,10 +24,10 @@
         <input type="password" name="password" class="form-control" id="password" placeholder="패스워드를 입력하세요." required="required">
         <label for="password">패스워드</label>
       </div>
+
       <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
+        <input type="checkbox" name="remember-me" id="rememberMe">
+        <label for="rememberMe" aria-describedby="rememberMeHelp">로그인 유지</label>
       </div>
       <button class="w-100 btn btn-lg btn-success" id="btn-login">로그인</button>
     </form>

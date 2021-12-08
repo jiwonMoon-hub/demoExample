@@ -1,15 +1,19 @@
 'use strict';
 
 let index = {
+    //초기화
     init: function () {
+        //회원가입
         $("#btn-save").on("click", () => { //this를 바인딩하기 위해 화샬표 함수 사용
             let form = document.querySelector("#needs-validation");
             if (form.checkValidity() == false) {
                 console.log("회원가입 안됨")
             } else {
                 this.save();
-            }//else end
+            }
         });
+
+        //회원 정보 수정
         $("#btn-update").on("click", () => {
             let form = document.querySelector("#needs-validation");
             if (form.checkValidity() == false) {
@@ -18,9 +22,10 @@ let index = {
                 this.update();
             }
         });
+
     },
 
-
+    //회원가입
     save: function() {
         let data = { //JavaScript Object
             username: $("#username").val(),
@@ -42,6 +47,8 @@ let index = {
             alert(JSON.stringify(err));
         });
     },
+
+    //회원 정보 수정
     update: function () {
         let data = {
             id: $("#id").val(),
