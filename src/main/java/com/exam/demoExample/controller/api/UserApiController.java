@@ -24,14 +24,6 @@ public class UserApiController {
         return userService.save(userSaveRequestDto.toEntity());
     }
 
-//    /**
-//     * 회원수정 API
-//     */
-//    @PutMapping("/api/v1/user")
-//    public Long update(@RequestBody User user, @AuthenticationPrincipal PrincipalDetail principalDetail) {
-//        userService.update(user, principalDetail);
-//        return user.getId();
-//    }
     /**
      * 회원수정 API
      */
