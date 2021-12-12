@@ -51,7 +51,7 @@ public class Board extends BaseTimeEntity {
 
     //무한 참조 (댓글 기능)
     @OrderBy("id desc") // 댓글 작성시 최근 순으로 볼 수 있도록 설정
-    @JsonIgnoreProperties({"board"}) // 무한 참조 발생 해결방법
+    // 무한 참조 발생 해결방법
 
     // Board 테이블에 댓글리스트를 추가하겠다는 의미
     // DB에는 하나의 raw 데이터에 하나의 값만 들어갈 수 있다.
@@ -60,5 +60,6 @@ public class Board extends BaseTimeEntity {
     //mppedBy : 연관관계의 주인이 아니므로 DB의 FK가 아니다 라는 뜻
     //@OneToMany의 디폴트 fetch는 Lazy입니다. 이것을 Eager로 변경
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties({"board", "user"}) //JsonIgnoreProperties를 걸어주면 reply 안에서 호출을 또 할게 될때 board는 getter 호출 무시
     private List<Reply> replyList;
 }
