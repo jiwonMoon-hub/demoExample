@@ -4,7 +4,8 @@ let index = {
     //초기화
     init: function () {
         //회원가입
-        $("#btn-save").on("click", () => { //this를 바인딩하기 위해 화샬표 함수 사용
+        //this를 바인딩하기 위해 화샬표 함수 사용
+        $("#btn-save").on("click", () => {
             let form = document.querySelector("#needs-validation");
             if (form.checkValidity() == false) {
                 console.log("회원가입 안됨")

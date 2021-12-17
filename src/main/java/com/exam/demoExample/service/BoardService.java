@@ -28,13 +28,13 @@ public class BoardService {
         return boardRepository.save(boardSaveRequestDto.toEntity()).getId();
     }
 
-    /**
-     * 글목록 로직
-     */
-    // JPA의 findAll() 메소드를 사용하면 테이블의 raw 데이터를 모두 조회해서 가져온다.
-    public List<Board> findAll() {
-        return boardRepository.findAll();
-    }
+//    /**
+//     * 글목록 로직
+//     */
+//    // JPA의 findAll() 메소드를 사용하면 테이블의 raw 데이터를 모두 조회해서 가져온다.
+//    public List<Board> findAll() {
+//        return boardRepository.findAll();
+//    }
 
     /**
      * 글상세 로직

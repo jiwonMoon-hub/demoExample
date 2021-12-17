@@ -1,3 +1,4 @@
+// 회원 가입에 대한 제약 조건
 'use strict';
 
 (function () {
