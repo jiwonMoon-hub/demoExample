@@ -1,3 +1,4 @@
+// 게시판에 대한 글, 글의 CRUD에 해당하는 JS
 'use strict';
 
 let index = {

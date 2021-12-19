@@ -1,3 +1,4 @@
+// 게시판에 대한 댓글, 댓글 CRUD에 해당하는 JS
 'use strict';
 
 let replyIndex = {

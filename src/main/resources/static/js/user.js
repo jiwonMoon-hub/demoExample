@@ -1,3 +1,4 @@
+// // 회원가입에 대한 CRUD 해당하는 JS
 'use strict';
 
 let index = {
