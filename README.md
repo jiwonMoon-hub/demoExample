@@ -1,2 +1,2 @@
-# 회원게시판
+# 회원전용게시판
 member+board+reply
