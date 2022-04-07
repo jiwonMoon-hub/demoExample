@@ -19,5 +19,5 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     // Containing이라는 키워드를 사용하면 JPA에서 LIKE문으로 실행
     // 제목이나 내용으로 검색될 수 있게
     Page<Board> findByTitleContainingOrContentContaining(@Param("title") String title,
-                                                         @Param("content") String content, Pageable pageable);
+                                                         @Param("content") String content, @Param("pageable")Pageable pageable);
 }
