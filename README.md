@@ -1,2 +1,3 @@
 # 회원전용게시판
-member+board+reply
+Detail: member+board+reply
+Bootstrap의 적용
