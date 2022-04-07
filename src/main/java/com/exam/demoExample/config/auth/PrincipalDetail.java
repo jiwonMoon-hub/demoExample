@@ -21,12 +21,14 @@ public class PrincipalDetail implements UserDetails {
 
     private User user; // 콤포지션 : 객체를 품고 있는 것
 
-    //생성자
-    public PrincipalDetail(User user) {
+
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public void setUser(User userEntity) {
+    //생성자
+    public PrincipalDetail(User user) {
+        this.user = user;
     }
 
     //사용자 패스워드
@@ -54,8 +56,8 @@ public class PrincipalDetail implements UserDetails {
     }
 
     //사용자 pk
-    public Long getCode() {
-        return user.getCode();
+    public Long getId() {
+        return user.getId();
     }
 
     //계정이 만료되었는지 (true: 만료되지 않음)
@@ -89,6 +91,4 @@ public class PrincipalDetail implements UserDetails {
 
         return collection;
     }
-
-
 }

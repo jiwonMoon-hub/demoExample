@@ -1,14 +1,13 @@
 package com.exam.demoExample.domain.user;
 
 import com.exam.demoExample.domain.BaseTimeEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.repository.query.Param;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @Builder // 어느 필드에 어떤 값을 채워야하는지 명확하게 알 수 있기 때문에
 @AllArgsConstructor
 @NoArgsConstructor // Lombok - 빈 생성자를 만듬
@@ -17,7 +16,7 @@ public class User extends BaseTimeEntity {
 
     @Id // 테이블의 Primary Key(PK)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long code; //sequence, auto_increment
+    private Long id; //sequence, auto_increment
 
     @Column(nullable = false, length = 20, unique = true)
     private String username; //아이디
