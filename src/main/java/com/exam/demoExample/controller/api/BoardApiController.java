@@ -28,6 +28,14 @@ public class BoardApiController {
     }
 
     /**
+     * 글수정 API
+     */
+    @PutMapping("/api/v1/board/{id}")
+    public Long update(@PathVariable Long id, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
+        return boardService.update(id, boardUpdateRequestDto);
+    }
+
+    /**
      * 글삭제 API
      */
     @DeleteMapping("/api/v1/board/{id}")
@@ -35,13 +43,5 @@ public class BoardApiController {
     public Long deleteById(@PathVariable Long id) {
         boardService.deleteById(id);
         return id;
-    }
-
-    /**
-     * 글수정 API
-     */
-    @PutMapping("/api/v1/board/{id}")
-    public Long update(@PathVariable Long id, @RequestBody BoardUpdateRequestDto boardUpdateRequestDto) {
-        return boardService.update(id, boardUpdateRequestDto);
     }
 }
