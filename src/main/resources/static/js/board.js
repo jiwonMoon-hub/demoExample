@@ -42,7 +42,8 @@ let index = {
     // 글 삭제
     // 삭제같은 경우는 data가 필요가없고 id만 필요
     // board-detail.html에서 글 번호로 id값을 받음.
-    // let id = $("#id").text();에서 뒤에 val()가 아니라 text()라는 점을 주의하면 됩니다. input 태그가 아니기 때문
+    // let id = $("#id").text();에서 뒤에 val()가 아니라 text()라는 점을 주의!!
+    // input 태그가 아니기 때문에
     deleteById: function () {
         let id = $("#id").text();
 

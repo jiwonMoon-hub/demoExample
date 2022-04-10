@@ -25,6 +25,15 @@ let index = {
             }
         });
 
+        //회원 정보 삭제
+        $("#btn-delete").on("click", () => {
+            let form = document.querySelector("#needs-validation");
+            if (form.checkValidity() == false) {
+                console.log("회원삭제 안됨")
+            } else {
+                this.delete();
+            }
+        });
     },
 
     //회원가입
@@ -44,7 +53,7 @@ let index = {
             dataType: "json" //응답 데이터
         }).done(function(res) {
             alert("회원가입이 완료되었습니다.");
-            location.href = "/";
+            location.href = "/auth/user/login";
         }).fail(function(err) {
             alert(JSON.stringify(err));
         });
@@ -55,6 +64,7 @@ let index = {
         let data = {
             id: $("#id").val(),
             password: $("#password").val(),
+            email: $("#email").val(),
             nickname: $("#nickname").val()
         }
 
@@ -70,6 +80,26 @@ let index = {
         }).fail(function (err) {
             alert(JSON.stringify(err));
         });
+    },
+
+    //회원 정보 삭제
+    // 삭제같은 경우는 data가 필요가없고 id만 필요
+    // board-detail에서 글 번호로 id값을 받음.
+    // input 태그가 아니기 때문
+    delete: function () {
+        let id = $("#id").val();
+
+        $.ajax({
+            type: "DELETE",
+            url: "/api/v1/user/" + id,
+            dataType: "json"
+        }).done(function (res) {
+            alert("회원탈퇴가 완료되었습니다.");
+            location.href = "/auth/user/login";
+        }).fail(function (err) {
+            alert(JSON.stringify(err));
+        });
     }
+
 }
 index.init();

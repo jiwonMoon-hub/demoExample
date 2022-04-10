@@ -31,4 +31,14 @@ public class ReplyService {
     public void replyDelete(Long replyId) {
         replyRepository.deleteById(replyId);
     }
+
+//    /*모댓글, 대댓글 삭제*/
+//    @Transactional
+//    public void deleteByCid(Long cid) {
+//        queryFactory.delete(QBoardCommentEntity.boardCommentEntity)
+//                .where(QBoardCommentEntity.boardCommentEntity.id.eq(cid)
+//                        .or(QBoardCommentEntity.boardCommentEntity.cGroup.eq(cid))
+//                )
+//                .execute();
+//    }
 }

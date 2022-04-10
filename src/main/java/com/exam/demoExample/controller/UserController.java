@@ -28,4 +28,13 @@ public class UserController {
     public String userUpdate() {
         return "layout/user/user-update";
     }
+
+    /**
+     * 회원탈퇴 페이지
+     */
+    @GetMapping("/user/delete")
+    public String userDelete() {
+        return "layout/user/user-delete";
+    }
+
 }
